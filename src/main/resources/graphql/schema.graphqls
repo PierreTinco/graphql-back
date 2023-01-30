@@ -1,0 +1,14 @@
+type Query {
+    heroById(id: ID): Hero
+    heroes: [Hero]
+}
+
+type Hero {
+    id: ID
+    name: String
+    power: String
+}
+
+type Mutation {
+    addHero(name: String, power: String): Hero
+}
