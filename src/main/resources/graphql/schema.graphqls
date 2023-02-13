@@ -1,5 +1,6 @@
 type Query {
     heroById(id: ID): Hero
+    heroByName(name: String): Hero
     heroes: [Hero]
 }
 
@@ -10,5 +11,13 @@ type Hero {
 }
 
 type Mutation {
-    addHero(name: String, power: String): Hero
+    addHero(hero: HeroInput!): Hero
+    deleteHero(id: ID!): Boolean
+    updateHero(hero: HeroInput!): Hero
+}
+
+input HeroInput {
+    id: ID
+    name: String!
+    power: String
 }

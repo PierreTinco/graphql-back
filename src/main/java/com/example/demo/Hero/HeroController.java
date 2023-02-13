@@ -16,11 +16,23 @@ public class HeroController {
         return hero.getHeroById(id);
     }
     @QueryMapping
+    public Hero heroByName(@Argument String name) {
+        return hero.getHeroByName(name);
+    }
+    @QueryMapping
     public List<Hero> heroes() {
         return hero.getAllHeroes();
     }
     @MutationMapping
-    public Hero addHero(@Argument String name, @Argument String power) {
-       return this.hero.addHero(name, power);
+    public Hero addHero(@Argument Hero hero) {
+        return this.hero.addHero(hero);
+    }
+    @MutationMapping
+    public Boolean deleteHero(@Argument Integer id) {
+        return this.hero.deleteHero(id);
+    }
+    @MutationMapping
+    public Hero update(@Argument Hero hero) {
+        return this.hero.updateHero(hero);
     }
 }
